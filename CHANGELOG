@@ -1,0 +1,7 @@
+Changelog
+=========
+
+0.1.0 (July 28th, 2016)
+--------------------------
+
+* New: Initial version supporting basic CSS and JS inlining from static files.
