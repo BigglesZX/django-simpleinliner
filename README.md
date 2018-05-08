@@ -4,7 +4,7 @@ A simple Django app for inlining static CSS and JS files in templates.
 
 ## Rationale
 
-Provides a quick and easy way to inline an entire JS or CSS file from staticfiles into a template, wrapping it in appropriate tags. `django-compressor` does this but I wanted something more lightweight, and also wanted to try my hand at writing a Django extension. Some inspiration and staticfile-handling code was taken from [`django-inlinecss`](https://github.com/roverdotcom/django-inlinecss/).
+Provides a quick and easy way to inline an entire JS or CSS file from staticfiles into a template, wrapping it in appropriate tags. [`django-compressor`](https://github.com/django-compressor/django-compressor) does this but I wanted something more lightweight, and also wanted to try my hand at writing a Django extension. Some inspiration and staticfile-handling code was taken from [`django-inlinecss`](https://github.com/roverdotcom/django-inlinecss/).
 
 ## Installation
 
@@ -22,12 +22,14 @@ Load the app at the top of your template:
 {% load simpleinliner %}
 ```
 
-Call `inlinecss` or `inlinejs` where you want to pull in a static file:
+Call `inlinecss`, `inlinejs` or `inlinegeneric` where you want to pull in a static file:
 
 ```
 {% inlinejs 'path/to/my.js' %}
 
 {% inlinecss 'path/to/my.css' %}
+
+{% inlinegeneric 'path/to/my.svg' %}
 ```
 
 The file will be inserted into the template each time the template is rendered, keeping it up to date.
@@ -49,7 +51,7 @@ SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES = {
 
 Add or edit these as desired to change the attributes applied to these tags.
 
-By default `simpleinliner` will silently fail (including an empty tag) if the specified path doesn't exist. You can force it to raise an exception by setting `SIMPLEINLINER_RAISE_EXCEPTIONS` to `True` in your project settings.
+By default `simpleinliner` will silently fail (including an empty tag if using `inlinejs` or `inlinecss`) if the specified path doesn't exist. You can force it to raise an exception by setting `SIMPLEINLINER_RAISE_EXCEPTIONS` to `True` in your project settings.
 
 ## Issues, Suggestions, Contributions
 

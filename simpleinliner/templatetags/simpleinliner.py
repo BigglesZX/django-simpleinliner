@@ -12,6 +12,42 @@ from ..settings import *
 register = template.Library()
 
 
+def get_file_contents(path):
+    ''' Locate the specified static file using Django's staticfiles finders,
+        raising an exception if appropriate. Read in and return the file
+        contents.
+    '''
+    if settings.DEBUG:
+        expanded_path = finders.find(path)
+    else:
+        expanded_path = staticfiles_storage.path(path)
+    if not expanded_path:
+        if SIMPLEINLINER_RAISE_EXCEPTIONS:
+            raise SimpleInlinerException("The supplied static file path, "
+                                         "'{0}', could not be found.".format(
+                                            path
+                                         ))
+        return contents
+    with open(expanded_path) as static_file:
+        contents = static_file.read()
+    return contents
+
+
+def prepare_path(parser, token):
+    ''' Utility to clean up path arg '''
+    try:
+        tag_name, path = token.split_contents()
+    except ValueError:
+        raise template.TemplateSyntaxError(
+            "%r tag requires a single argument" % token.contents.split()[0]
+        )
+    if not (path[0] == path[-1] and path[0] in ('"', "'")):
+        raise template.TemplateSyntaxError(
+            "%r tag's argument should be in quotes" % tag_name
+        )
+    return path
+
+
 class SimpleInlinerBaseNode(template.Node):
     ''' Base class from which CSS- and JS-specific nodes inherit
 
@@ -25,7 +61,7 @@ class SimpleInlinerBaseNode(template.Node):
         self.html = HTML()
 
     def prepare_html_tag(self):
-        ''' call the appropriate method on the html object to generate a script
+        ''' Call the appropriate method on the html object to generate a script
             or style tag (tag name comes from a variable hence the awkward
             calling syntax). Use default attributes from settings.
         '''
@@ -34,25 +70,8 @@ class SimpleInlinerBaseNode(template.Node):
         )
 
     def prepare_html_tag_contents(self):
-        ''' Locate the specified static file using Django's staticfiles finders,
-            raising an exception if appropriate. Read in and return the file
-            contents.
-        '''
-        contents = ''
-        if settings.DEBUG:
-            self.expanded_path = finders.find(self.path)
-        else:
-            self.expanded_path = staticfiles_storage.path(self.path)
-        if not self.expanded_path:
-            if SIMPLEINLINER_RAISE_EXCEPTIONS:
-                raise SimpleInlinerException("The supplied static file path, "
-                                             "'{0}', could not be found.".format(
-                                                self.path
-                                             ))
-            return contents
-        with open(self.expanded_path) as static_file:
-            contents = static_file.read()
-        return contents
+        ''' Return the specified file's contents using our utility function '''
+        return get_file_contents(self.path)
 
     def render(self, context):
         ''' Build the appropriate HTML tag and fill it with delicious contents
@@ -72,26 +91,17 @@ class SimpleInlinerJSNode(SimpleInlinerBaseNode):
     html_tag_name = 'script'
 
 
-def prepare_path(parser, token):
-    ''' Boilerplate to clean up path arg '''
-    try:
-        tag_name, path = token.split_contents()
-    except ValueError:
-        raise template.TemplateSyntaxError(
-            "%r tag requires a single argument" % token.contents.split()[0]
-        )
-    if not (path[0] == path[-1] and path[0] in ('"', "'")):
-        raise template.TemplateSyntaxError(
-            "%r tag's argument should be in quotes" % tag_name
-        )
-    return path
-
-
 @register.tag
 def inlinecss(parser, token):
     ''' Invoke the CSS-specific template node '''
     path = prepare_path(parser, token)
     return SimpleInlinerCSSNode(path[1:-1])
+
+
+@register.simple_tag
+def inlinegeneric(path):
+    ''' Simple tag to return file contents, for generic use '''
+    return get_file_contents(path)
 
 
 @register.tag
