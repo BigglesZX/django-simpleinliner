@@ -2,7 +2,8 @@
 
 # FIXME: dirty hack to allow dist building on vagrant
 # source: http://bugs.python.org/issue8876
-# to build: $ python setup.py register sdist upload
+# to build: $ python setup.py register sdist
+# then: $ twine upload dist/*
 import os
 del os.link
 
@@ -23,7 +24,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=['Django<2.0', 'html>=1.16,<2.0',],
+    install_requires=['Django<2.0', 'html>=1.16,<2.0', 'twine'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Other Environment',
