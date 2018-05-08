@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.encoding import smart_text
+from django.utils.safestring import mark_safe
 from html import HTML
 
 from ..exceptions import SimpleInlinerException
@@ -101,7 +102,7 @@ def inlinecss(parser, token):
 @register.simple_tag
 def inlinegeneric(path):
     ''' Simple tag to return file contents, for generic use '''
-    return get_file_contents(path)
+    return mark_safe(get_file_contents(path))
 
 
 @register.tag
