@@ -17,6 +17,7 @@ setup(
     version=get_version(),
     description='A simple Django app for inlining static files in templates.',
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     author='James Tiplady',
     maintainer='James Tiplady',
     license='MIT',
