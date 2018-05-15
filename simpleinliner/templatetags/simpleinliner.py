@@ -5,6 +5,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.encoding import smart_text
 from django.utils.safestring import mark_safe
 from html import HTML
+from os.path import exists
 
 from ..exceptions import SimpleInlinerException
 from ..settings import *
@@ -22,13 +23,13 @@ def get_file_contents(path):
         expanded_path = finders.find(path)
     else:
         expanded_path = staticfiles_storage.path(path)
-    if not expanded_path:
+    if not exists(expanded_path):
         if SIMPLEINLINER_RAISE_EXCEPTIONS:
             raise SimpleInlinerException("The supplied static file path, "
                                          "'{0}', could not be found.".format(
                                             path
                                          ))
-        return contents
+        return ''
     with open(expanded_path) as static_file:
         contents = static_file.read()
     return contents
