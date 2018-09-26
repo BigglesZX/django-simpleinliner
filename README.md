@@ -53,6 +53,10 @@ Add or edit these as desired to change the attributes applied to these tags.
 
 By default `simpleinliner` will silently fail (including an empty tag if using `inlinejs` or `inlinecss`) if the specified path doesn't exist. You can force it to raise an exception by setting `SIMPLEINLINER_RAISE_EXCEPTIONS` to `True` in your project settings.
 
+## Credits
+
+Since version 0.2.5 this library bundles version 1.16 of the [`html`](https://pypi.org/project/html/) library (in `html.py`), as that library does not correctly install itself in modern python/setuptools environments and cannot be correctly imported.
+
 ## Issues, Suggestions, Contributions
 
 ...are welcome on GitHub. Thanks for your interest in `simpleinliner`!

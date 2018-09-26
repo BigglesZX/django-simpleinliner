@@ -4,10 +4,10 @@ from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.encoding import smart_text
 from django.utils.safestring import mark_safe
-from html import HTML
 from os.path import exists
 
 from ..exceptions import SimpleInlinerException
+from ..html import HTML
 from ..settings import *
 
 

@@ -1,6 +1,21 @@
 Changelog
 =========
 
+0.2.5 (September 26th, 2018)
+--------------------------
+
+* Updated: Bundling `html` library to avoid installation issues with newer Python/Setuptools versions
+
+0.2.4 (May 15th, 2018)
+--------------------------
+
+* Updated: Improved handling of missing files
+
+0.2.0 (May 8th, 2018)
+--------------------------
+
+* New: Refactored file/path handling and added `includegeneric` template tag
+
 0.1.0 (July 28th, 2016)
 --------------------------
 
