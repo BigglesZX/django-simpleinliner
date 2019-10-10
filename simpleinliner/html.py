@@ -1,8 +1,5 @@
 # -*- encoding: utf8 -*-
-#
-# $Id: html.py 5409 2011-06-29 07:07:25Z rjones $
-# $HeadURL: svn+ssh://svn/svn/trunk/api/eklib/html.py $
-#
+# flake8: noqa
 '''Simple, elegant HTML, XHTML and XML generation.
 
 Constructing your HTML

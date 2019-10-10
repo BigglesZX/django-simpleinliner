@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 
-# FIXME: dirty hack to allow dist building on vagrant
-# source: http://bugs.python.org/issue8876
-# to build: $ python setup.py register sdist
-# then: $ twine upload dist/*
+''' XXX: allow dist building on vagrant
+    source: http://bugs.python.org/issue8876
+    to build: $ python setup.py register sdist
+    then: $ twine upload dist/*
+'''
 import os
 del os.link
 
-
-import sys
-from setuptools import setup, find_packages
-from simpleinliner._version import get_version
+from setuptools import setup, find_packages  # noqa: E402
+from simpleinliner._version import get_version  # noqa: E402
 
 setup(
     name='django-simpleinliner',
@@ -25,15 +24,32 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=['Django<2.0', 'twine'],
+    python_requires='>=2.6,<4',
+    install_requires=['Django>=1.10,<=2.2.*', 'six==1.12.0'],
+    extras_require={
+        'dev': [
+            'flake8>=3.7.7',
+            'setuptools>=41.0.0',
+            'twine>=1.13.0',
+            'wheel>=0.33.1',
+        ]
+    },
     classifiers=[
         'Development Status :: 4 - Beta',
-        'Environment :: Other Environment',
-        'Environment :: Web Environment',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Text Processing :: Markup :: HTML',
+    'Environment :: Web Environment',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.6',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Software Development :: Libraries :: Application Frameworks',
+    'Framework :: Django',
+    'Framework :: Django :: 1.10',
+    'Framework :: Django :: 1.11',
+    'Framework :: Django :: 2.0',
+    'Framework :: Django :: 2.1',
+    'Framework :: Django :: 2.2',
     ],
 )

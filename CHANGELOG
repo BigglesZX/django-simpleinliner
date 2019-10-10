@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.0 (October 10th, 2019)
+--------------------------
+
+* New: Added compatibility with python 3.6 and Django 2.x.
+
 0.2.5 (September 26th, 2018)
 --------------------------
 
@@ -19,4 +24,4 @@ Changelog
 0.1.0 (July 28th, 2016)
 --------------------------
 
-* New: Initial version supporting basic CSS and JS inlining from static files.
+* New: Initial version supporting basic CSS and JS inlining from static files

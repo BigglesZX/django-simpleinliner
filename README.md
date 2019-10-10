@@ -6,6 +6,15 @@ A simple Django app for inlining static CSS and JS files in templates. Read CSS,
 
 Provides a quick and easy way to inline an entire JS or CSS file from staticfiles into a template, wrapping it in appropriate tags. [`django-compressor`](https://github.com/django-compressor/django-compressor) does this but I wanted something more lightweight, and also wanted to try my hand at writing a Django extension. Some inspiration and staticfile-handling code was taken from [`django-inlinecss`](https://github.com/roverdotcom/django-inlinecss/).
 
+## Compatibility
+
+As I've only recently started migrating my projects to Django 2 / Python 3, the below is only a guide – however I expect it to be mostly accurate.
+
+|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 |
+|---------------:|:-------------:|:----:|:---:|:---:|:---:|
+| **Python** 2.7 | ✔             | ✔    |     |     |     |
+| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   |
+
 ## Installation
 
 ```
@@ -52,6 +61,20 @@ SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES = {
 Add or edit these as desired to change the attributes applied to these tags.
 
 By default `simpleinliner` will silently fail (including an empty tag if using `inlinejs` or `inlinecss`) if the specified path doesn't exist. You can force it to raise an exception by setting `SIMPLEINLINER_RAISE_EXCEPTIONS` to `True` in your project settings.
+
+## Development Installation
+
+If working locally on the package you can install the development tools via `pip`:
+
+```shell
+$ pip install -e .[dev]
+```
+
+To lint with `flake8`:
+
+```shell
+$ flake8
+```
 
 ## Credits
 

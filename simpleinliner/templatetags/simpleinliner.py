@@ -1,3 +1,5 @@
+import six
+
 from django import template
 from django.conf import settings
 from django.contrib.staticfiles import finders
@@ -8,7 +10,11 @@ from os.path import exists
 
 from ..exceptions import SimpleInlinerException
 from ..html import HTML
-from ..settings import *
+from ..settings import *  # noqa: F403
+
+
+if six.PY3:
+    unicode = str
 
 
 register = template.Library()
@@ -24,7 +30,7 @@ def get_file_contents(path):
     else:
         expanded_path = staticfiles_storage.path(path)
     if not exists(expanded_path):
-        if SIMPLEINLINER_RAISE_EXCEPTIONS:
+        if SIMPLEINLINER_RAISE_EXCEPTIONS:  # noqa: F405
             raise SimpleInlinerException("The supplied static file path, "
                                          "'{0}', could not be found.".format(
                                             path
@@ -68,7 +74,7 @@ class SimpleInlinerBaseNode(template.Node):
             calling syntax). Use default attributes from settings.
         '''
         return getattr(self.html, self.html_tag_name)(
-            **SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES[self.html_tag_name]
+            **SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES[self.html_tag_name]  # noqa: F405, E501
         )
 
     def prepare_html_tag_contents(self):

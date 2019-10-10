@@ -1,3 +1,3 @@
-''' Stub exception used for just about everything '''
 class SimpleInlinerException(Exception):
+    ''' Stub exception used for just about everything '''
     pass
