@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.1 (October 10th, 2019)
+--------------------------
+
+* Fixed: Django version in package requirements
+
 0.3.0 (October 10th, 2019)
 --------------------------
 
