@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.3 (January 23rd, 2020)
+--------------------------
+
+* Fixed: Relaxed dependency on six
+
 0.3.2 (October 10th, 2019)
 --------------------------
 
