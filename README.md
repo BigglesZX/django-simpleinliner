@@ -8,12 +8,12 @@ Provides a quick and easy way to inline an entire JS or CSS file from staticfile
 
 ## Compatibility
 
-As I've only recently started migrating my projects to Django 2 / Python 3, the below is only a guide – however I expect it to be mostly accurate.
+I've not long upgraded to Django 2/3 and Python 3, so have not exhaustively tested all the below combinations, however I believe this table to be accurate.
 
-|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 |
-|---------------:|:-------------:|:----:|:---:|:---:|:---:|
-| **Python** 2.7 | ✔             | ✔    |     |     |     |
-| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   |
+|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 | 3.0 |
+|---------------:|:-------------:|:----:|:---:|:---:|:---:|:---:|
+| **Python** 2.7 | ✔             | ✔    |     |     |     |     |
+| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   | ✔   |
 
 ## Installation
 
