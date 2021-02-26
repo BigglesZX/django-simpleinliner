@@ -13,11 +13,9 @@ SIMPLEINLINER_RAISE_EXCEPTIONS = \
 SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES = \
     getattr(settings, 'SIMPLEINLINER_DEFAULT_TAG_ATTRIBUTES', {
         'script': {
-            'charset': 'utf-8',
             'type': 'text/javascript',
         },
         'style': {
-            'charset': 'utf-8',
             'type': 'text/css',
         },
     })
