@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.6 (June 17th, 2021)
+--------------------------
+
+* Updated: The `charset` attribute on `<style>` and `<script>` is now obsolete
+
 0.3.5 (June 17th, 2021)
 --------------------------
 
