@@ -1,6 +1,6 @@
 # django-simpleinliner
 
-A simple Django app for inlining static CSS and JS files in templates. Read CSS, JS or generic files from your static directories and insert them inline into your Django templates, wrapping in appropriate HTML tags if necessary.
+A simple Django app for inlining static CSS and JS files in templates. Read CSS, JS or generic files from your static directories and insert their contents into your Django templates, wrapping in appropriate HTML tags if necessary.
 
 ## Rationale
 
@@ -8,12 +8,12 @@ Provides a quick and easy way to inline an entire JS or CSS file from staticfile
 
 ## Compatibility
 
-I've not long upgraded to Django 2/3 and Python 3, so have not exhaustively tested all the below combinations, however I believe this table to be accurate.
+I've not exhaustively tested all the below combinations, however I believe this table to be accurate.
 
-|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 | 3.0 |
-|---------------:|:-------------:|:----:|:---:|:---:|:---:|:---:|
-| **Python** 2.7 | ✔             | ✔    |     |     |     |     |
-| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   | ✔   |
+|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 | 3.0 | 3.2 | 3.2 |
+|---------------:|:-------------:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Python** 2.7 | ✔             | ✔    |     |     |     |     |     |     |
+| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   | ✔   | ✔   | ✔   |
 
 ## Installation
 
