@@ -10,10 +10,12 @@ Provides a quick and easy way to inline an entire JS or CSS file from staticfile
 
 I've not exhaustively tested all the below combinations, however I believe this table to be accurate.
 
-|                | Django 1.10   | 1.11 | 2.0 | 2.1 | 2.2 | 3.0 | 3.2 | 3.2 |
-|---------------:|:-------------:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Python** 2.7 | ✔             | ✔    |     |     |     |     |     |     |
-| 3.6            | ✔             | ✔    | ✔   | ✔   | ✔   | ✔   | ✔   | ✔   |
+|                | Django 1.11 | 2.0 | 2.1 | 2.2 | 3.0 | 3.1 | 3.2 |
+|---------------:|:-----------:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Python** 2.7 | ✔           |     |     |     |     |     |     |
+| 3.6            | ✔           | ✔   | ✔   | ✔   | ✔   | ✔   | ✔   |
+| 3.7            | ✔           | ✔   | ✔   | ✔   | ✔   | ✔   | ✔   |
+| 3.8            | ✔           | ✔   | ✔   | ✔   | ✔   | ✔   | ✔   |
 
 ## Installation
 
@@ -78,7 +80,7 @@ $ flake8
 
 ## Credits
 
-Since version 0.2.5 this library bundles version 1.16 of the [`html`](https://pypi.org/project/html/) library (in `html.py`), as that library does not correctly install itself in modern python/setuptools environments and cannot be correctly imported.
+Since version 0.2.5 this library bundles a lightly modified version 1.16 of the [`html`](https://pypi.org/project/html/) library (in `html.py`), as that library does not correctly install itself in modern python/setuptools environments and cannot be correctly imported.
 
 ## Issues, Suggestions, Contributions
 

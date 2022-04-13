@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.3.7 (April 13th, 2022)
+--------------------------
+
+* Fixed: Remove reliance on `cgi.escape`, which no longer exists in Python 3.8
+* Indicating compatibility with Python 3.7 and 3.8
+
 0.3.6 (June 17th, 2021)
 --------------------------
 
