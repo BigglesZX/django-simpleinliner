@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.3.8 (April 13th, 2022)
+--------------------------
+
+* Fixed: Switched from `smart_text` to `force_str` to avoid error in Django 4.0
+
 0.3.7 (April 13th, 2022)
 --------------------------
 

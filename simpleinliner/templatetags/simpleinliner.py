@@ -4,7 +4,7 @@ from django import template
 from django.conf import settings
 from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.utils.encoding import smart_text
+from django.utils.encoding import force_str
 from django.utils.safestring import mark_safe
 from os.path import exists
 
@@ -65,7 +65,7 @@ class SimpleInlinerBaseNode(template.Node):
 
     def __init__(self, path):
         ''' clean up the supplied path and initialise the HTML instance '''
-        self.path = smart_text(path)
+        self.path = force_str(path)
         self.html = HTML()
 
     def prepare_html_tag(self):
