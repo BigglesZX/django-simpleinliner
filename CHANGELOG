@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.0 (November 7th, 2025)
+-----------------------
+
+* New: Aligned support with official Django/Python support matrix, dropping support for Django<4.2 and Python<3.8
+* New: Added basic test suite
+* New: Added tox for multi-version testing
+* New: Formatted code with Black
+
 0.3.8 (April 13th, 2022)
 --------------------------
 
