@@ -92,6 +92,8 @@ $ tox run
 
 Since version 0.2.5 this library bundles a lightly modified version 1.16 of the [`html`](https://pypi.org/project/html/) library (in `html.py`), as that library does not correctly install itself in modern python/setuptools environments and cannot be correctly imported.
 
+Since version 1.0.0, the example project in this library includes an image by [Andy Carolan](https://ko-fi.com/s/4662b19f61).
+
 ## Issues, Suggestions, Contributions
 
 ...are welcome on GitHub. Thanks for your interest in `simpleinliner`!
